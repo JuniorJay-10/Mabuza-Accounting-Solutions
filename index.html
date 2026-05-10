@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mabuza Accounting Solutions</title>
+  <meta name="description" content="Professional accounting, tax compliance, payroll, bookkeeping, and business registrations. Mabuza Accounting Solutions." />
+  <meta name="theme-color" content="#5B21B6" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mabuza Accounting Solutions" />
+  <meta property="og:description" content="Accounting, Tax Planning & Compliance (SARS), Payroll, Bookkeeping, Business Registrations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.png" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --primary:#5B21B6;      /* deep purple */
+      --primary-600:#6D28D9;
+      --primary-50:#F5F3FF;
+      --text:#111827;
+      --muted:#4B5563;
+      --bg:#F9FAFB;
+      --white:#FFFFFF;
+      --card:#FFFFFF;
+      --border:#E5E7EB;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    /* Header */
+    .header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: saturate(180%) blur(8px);
+      background:rgba(255,255,255,.8);
+      border-bottom:1px solid var(--border);
+    }
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      height:72px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
+    }
+    .brand img{height: 65px; width: aut 200px; border-radius:10px}
+    .brand span{font-weight:800; letter-spacing:.2px}
+    .menu{display:flex; gap:20px; align-items:center}
+    .menu a{
+      text-decoration:none; color:var(--muted); font-weight:600; padding:8px 12px; border-radius:10px;
+    }
+    .menu a:hover{background:var(--primary-50); color:var(--primary)}
+    .cta{
+      background:var(--primary); color:var(--white); border:none; border-radius:12px;
+      padding:10px 16px; font-weight:700; cursor:pointer; box-shadow: var(--shadow);
+    }
+    .cta:hover{background:var(--primary-600)}
+    .hamburger{display:none; background:none; border:none; font-size:26px; padding:6px 10px}
+
+    /* Mobile menu */
+    @media (max-width: 840px){
+      .menu{display:none}
+      .hamburger{display:block}
+      .mobile{
+        display:none; position:fixed; top:72px; left:0; right:0; background:var(--white); border-bottom:1px solid var(--border);
+      }
+      .mobile.open{display:block}
+      .mobile a{display:block; padding:14px 20px; text-decoration:none; color:var(--muted); border-top:1px solid var(--border)}
+      .mobile a:hover{background:var(--primary-50); color:var(--primary)}
+      .mobile .cta{margin:16px 20px}
+    }
+
+    /* Hero */
+    .hero{
+      padding:72px 0; background:linear-gradient(180deg, var(--primary-50), #fff);
+    }
+    .hero-grid{
+      display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:center;
+    }
+    @media (max-width: 840px){ .hero-grid{grid-template-columns:1fr} }
+    .hero h1{font-size:42px; line-height:1.15; margin:0 0 12px}
+    .hero p{color:var(--muted); margin:0 0 24px}
+    .badge{
+      display:inline-block; background:#fff; border:1px solid var(--border); padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px; margin-bottom:14px;
+    }
+    .hero-card{
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px;
+    }
+    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:20px}
+    .kpi{background:#fff; border:1px solid var(--border); border-radius:16px; padding:16px; text-align:center}
+    .kpi b{font-size:22px; display:block}
+
+    /* Sections */
+    section{padding:70px 0}
+    .section-title{font-size:30px; margin:0 0 10px}
+    .section-sub{color:var(--muted); margin:0 0 26px}
+
+    /* Cards grid */
+    .grid{display:grid; gap:20px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width: 980px){ .grid-3{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 640px){ .grid-3{grid-template-columns:1fr} }
+
+    .card{
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);
+    }
+    .card h3{margin:0 0 8px}
+    .pill{display:inline-block; font-size:12px; background:var(--primary-50); color:var(--primary); padding:4px 8px; border-radius:999px; font-weight:700; }
+
+    /* Testimonials */
+    .quote{font-style:italic; color:var(--muted)}
+    .who{font-weight:700; margin-top:10px}
+
+    /* Contact */
+    form{display:grid; gap:12px}
+    input, textarea{
+      width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:12px; font:inherit;
+      background:#fff;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .note{font-size:12px; color:var(--muted)}
+
+    /* Footer */
+    .footer{
+      padding:28px 0; border-top:1px solid var(--border); background:#fff; color:var(--muted); font-size:14px;
+    }
+
+    /* Back to top */
+    #topBtn{
+      position:fixed; right:18px; bottom:18px; border:none; border-radius:999px;
+      width:48px; height:48px; background:var(--primary); color:#fff; font-size:18px; cursor:pointer; display:none; box-shadow:var(--shadow);
+    }
+    #topBtn:hover{background:var(--primary-600)}
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="header" role="banner">
+    <div class="container">
+      <nav class="nav" aria-label="Main">
+        <a class="brand" href="#home" aria-label="Mabuza Accounting Solutions">
+         
+          <img src="logo.png" alt="Mabuza Accounting Solutions logo" />
+          <span>Mabuza Accounting Solutions</span>
+        </a>
+        <div class="menu" role="menubar">
+          <a href="#services" role="menuitem">Services</a>
+          <a href="#about" role="menuitem">About</a>
+          <a href="#testimonials" role="menuitem">Testimonials</a>
+          <a href="#contact" role="menuitem">Contact</a>
+          <a href="#contact"><button class="cta">Get a Quote</button></a>
+        </div>
+        <button class="hamburger" aria-label="Open menu" id="hamburger">☰</button>
+      </nav>
+    </div>
+    <div class="mobile" id="mobileMenu" aria-label="Mobile menu">
+      <a>Empowering your business with reliable financial solutions.</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">Trusted • Professional • Compliant</span>
+        <h1>We handle the numbers — You focus on the hustle.</h1>
+        <p>Running a business is tough enough. We make accounting and tax stress-free, so you can focus on running and growing your business. we’ve got your back.</p>
+        <div>
+          <a href="#contact"><button class="cta">Speak to an Expert</button></a>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>200+</b><span>Clients Served</span></div>
+          <div class="kpi"><b>R0</b><span>Penalty Goal</span></div>
+          <div class="kpi"><b>100%</b><span>Compliance Focus</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card" aria-label="Quick contact">
+          <h3 style="margin:0 0 10px;">Quick Contact</h3>
+          <form onsubmit="return quickContact(event)">
+            <label class="note" for="qname">Name</label>
+            <input id="qname" name="name" placeholder="Your name" required />
+            <label class="note" for="qemail">Email</label>
+            <input id="qemail" type="email" name="email" placeholder="Your email" required />
+            <label class="note" for="qmsg">Message</label>
+            <textarea id="qmsg" name="message" placeholder="How can we help?" required></textarea>
+            <button class="cta" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Services -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="container">
+      <h2 class="section-title" id="services-title">Our Services</h2>
+      <p class="section-sub">Full-stack accounting and compliance for all individuals (residents / non - residents) and companies.</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="pill">CIPC • CSD • COIDA • CIDB</span>
+          <h3>Company Registration & Reinstatement</h3>
+          <p>Fast, compliant setup and reinstatement of companies, plus key registrations to start trading confidently.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Payroll</span>
+          <h3>Payroll Services</h3>
+          <p>Accurate payroll processing, payslips, EMP201/501 submissions, and statutory compliance.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Books</span>
+          <h3>Book-keeping Services</h3>
+          <p>Clean books, reconciliations, management accounts, and cloud accounting setup.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Advisory</span>
+          <h3>Consultation & Advisory</h3>
+          <p>Strategic guidance on cash flow, pricing, tax and VAT, and smart financial decisions that drive growth.</p>
+        </article>
+        <article class="card">
+          <span class="pill">SARS</span>
+          <h3>Tax Planning & Compliance (SARS)</h3>
+          <p>Income tax, Provisional tax, returns, objections, penalty mitigation, and proactive planning to avoid surprises.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Reports</span>
+          <h3>Financial Statements</h3>
+          <p>Annual financial statements prepared to required standards.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="container">
+      <h2 class="section-title" id="about-title">About Us</h2>
+      <p class="section-sub">We keep clients penalty-free by doing the basics flawlessly and on time.</p>
+      <div class="card">
+        <p>
+          <strong>Mabuza Accounting Solutions</strong> is a trusted provider of comprehensive financial and accounting services dedicated to helping businesses and individuals achieve their financial goals. With a commitment to accuracy, professionalism, and reliability, we offer tailored solutions that empower clients to make informed financial decisions.
+        </p>
+
+
+        <p>
+            Our team specialises in book-keeping, payroll services, tax planning and compliance, company registrations, and financial advisory services designed to meet the unique needs of each client. We combine deep industry knowledge with innovative strategies to ensure efficiency and compliance at every step.
+        </p>
+
+        <p>
+          We believe in building lasting relationships through transparency, integrity, and exceptional customer service. Whether you are a startup, a growing business, or an individual in need of expert financial guidance, we are here to support you every step of the way.
+        </p>
+
+
+        <p>
+        <strong>Our Vision</strong>, to be the leading provider of innovative and reliable accounting solutions in South Africa, empowering businesses and individuals to achieve financial clarity, growth, and long-term success.
+
+
+        <p>
+         <strong>Our Mission</strong>, to empower your business with reliable financial solutions that drive growth and sustainability.
+
+                 <p>
+
+          <p> <strong>Our Core Values</strong></p>
+        
+    <ul class="values-list">
+      <li><strong>Integrity</strong> — We do what's right, always.</li>
+      <li><strong>Accountability</strong> — We own our actions and outcomes.</li>
+      <li><strong>Innovation</strong> — We embrace creativity and progress.</li>
+      <li><strong>Customer Centricity</strong> — We put our clients first.</li>
+      <li><strong>Collaboration</strong> — We achieve more together.</li>
+    </ul>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" aria-labelledby="testimonials-title">
+    <div class="container">
+      <h2 class="section-title" id="testimonials-title">What Clients Say</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <p class="quote">“They sorted our payroll and SARS submissions fast — no more month-end stress.”</p>
+          <p class="who">— Thandi N., Retail</p>
+        </div>
+        <div class="card">
+          <p class="quote">“Transparent advice and clean books. We finally understand our numbers.”</p>
+          <p class="who">— Sipho M., Construction</p>
+        </div>
+        <div class="card">
+          <p class="quote">“Registration + compliance done right. Highly recommended.”</p>
+          <p class="who">— Lerato K., Logistics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 class="section-title" id="contact-title">Contact Us</h2>
+      <p class="section-sub">We typically respond within one business day.</p>
+      <div class="grid" style="grid-template-columns:1.1fr .9fr; gap:24px">
+        <form class="card" onsubmit="return sendContact(event)">
+          <h3 style="margin:0 0 8px">Send a Message</h3>
+          <!-- To make this send emails, replace the onsubmit handler with action="https://formspree.io/f/<your-id>" method="POST" -->
+          <input name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <input name="phone" placeholder="Phone number" />
+          <textarea name="message" placeholder="How can we help?" required></textarea>
+          <button class="cta" type="submit">Submit</button>
+          <p class="note">Or email us at <a href="mailto:mabuza.accsolutions@gmail.com">mabuza.accsolutions@gmail.com</a></p>
+        </form>
+        <div class="card">
+          <h3 style="margin:0 0 8px">Our Details</h3>
+          <p><strong>Phone:</strong> 076 174 4018</p>
+          <p><strong>Email:</strong> mabuza.accsolutions@gmail.com</p>
+          <p><strong>Address:</strong> 13756 Cluster Pine Cres, Johannesburg, 1818</p>
+          <p><strong>Hours:</strong> Mon–Fri, 08:00–17:00</p>
+          <div style="height:200px; border:1px dashed var(--border); border-radius:12px; display:grid; place-items:center; margin-top:10px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.5849024830372!2d27.791816275201345!3d-26.275132277032974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95a45d1f3b9299%3A0x704d0cd18c16de7e!2s13756%20Cluster%20Pine%20Cres%2C%20Protea%20Glen%2C%20Soweto%2C%201819!5e0!3m2!1sen!2sza!4v1757154927973!5m2!1sen!2sza" width="500" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container" style="display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap;">
+      <span>© <span id="year"></span> Mabuza Accounting Solutions. All rights reserved.</span>
+      <span><a href="#home" style="text-decoration:none; color:inherit">Back to Home</a></span>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="topBtn" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script>
+    // Header interactions
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-label', mobileMenu.classList.contains('open') ? 'Close menu' : 'Open menu');
+    });
+
+    // Back to top button
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      topBtn.style.display = window.scrollY > 500 ? 'grid' : 'none';
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Demo forms (replace with backend or Formspree)
+    function toast(msg){
+      const t = document.createElement('div');
+      t.textContent = msg;
+      Object.assign(t.style, {
+        position:'fixed', left:'50%', bottom:'28px', transform:'translateX(-50%)',
+        background:'#111827', color:'#fff', padding:'12px 16px', borderRadius:'12px',
+        boxShadow:'0 10px 30px rgba(0,0,0,.2)', zIndex:9999
+      });
+      document.body.appendChild(t);
+      setTimeout(()=>t.remove(), 2500);
+    }
+    function sendContact(e){
+      e.preventDefault();
+      toast('Thanks! Your message has been queued.');
+      e.target.reset();
+      return false;
+    }
+    function quickContact(e){
+      e.preventDefault();
+      toast('Thanks! We will contact you shortly.');
+      e.target.reset();
+      return false;
+    }
+
+
+
+    
+  </script>
+</body>
+</html>
