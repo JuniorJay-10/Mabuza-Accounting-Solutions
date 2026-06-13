@@ -54,7 +54,7 @@
     .brand{
       display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
     }
-    .brand img{height: 65px; width: aut 200px; border-radius:10px}
+    .brand img{height: 65px; width: auto ; border-radius:10px}
     .brand span{font-weight:800; letter-spacing:.2px}
     .menu{display:flex; gap:20px; align-items:center}
     .menu a{
@@ -159,88 +159,145 @@
           <a href="#about" role="menuitem">About</a>
           <a href="#testimonials" role="menuitem">Testimonials</a>
           <a href="#contact" role="menuitem">Contact</a>
-          <a href="#contact"><button class="cta">Get a Quote</button></a>
+          <!-- <a href="#contact"><button class="cta">Get a Quote</button></a> -->
         </div>
         <button class="hamburger" aria-label="Open menu" id="hamburger">☰</button>
       </nav>
     </div>
-    <div class="mobile" id="mobileMenu" aria-label="Mobile menu">
+    <!-- <div class="mobile" id="mobileMenu" aria-label="Mobile menu">
       <a>Empowering your business with reliable financial solutions.</a>
-    </div>
+    </div> -->
   </header>
 
-  <!-- Hero -->
-  <main id="home" class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="badge">Trusted • Professional • Compliant</span>
-        <h1>We handle the numbers — You focus on the hustle.</h1>
-        <p>Running a business is tough enough. We make accounting and tax stress-free, so you can focus on running and growing your business. we’ve got your back.</p>
-        <div>
-          <a href="#contact"><button class="cta">Speak to an Expert</button></a>
-        </div>
-        <div class="kpis">
-          <div class="kpi"><b>200+</b><span>Clients Served</span></div>
-          <div class="kpi"><b>R0</b><span>Penalty Goal</span></div>
-          <div class="kpi"><b>100%</b><span>Compliance Focus</span></div>
-        </div>
-      </div>
-      <div>
-        <div class="hero-card" aria-label="Quick contact">
-          <h3 style="margin:0 0 10px;">Quick Contact</h3>
-          <form onsubmit="return quickContact(event)">
-            <label class="note" for="qname">Name</label>
-            <input id="qname" name="name" placeholder="Your name" required />
-            <label class="note" for="qemail">Email</label>
-            <input id="qemail" type="email" name="email" placeholder="Your email" required />
-            <label class="note" for="qmsg">Message</label>
-            <textarea id="qmsg" name="message" placeholder="How can we help?" required></textarea>
-            <button class="cta" type="submit">Send</button>
-          </form>
-        </div>
+<!-- Hero -->
+<main id="home" class="hero">
+  <div class="container">
+    <div style="text-align:center; max-width:700px; margin:0 auto;">
+      <span class="badge">Trusted • Professional • Compliant</span>
+      <h1 style="font-size:48px; line-height:1.15; margin:0 0 16px;">We handle the numbers — You focus on the hustle.</h1>
+      <p style="color:var(--muted); font-size:18px; margin:0 0 32px;">Running a business is tough enough. We make accounting and tax stress-free, so you can focus on running and growing your business. We've got your back.</p>
+      <a href="#contact"><button class="cta" style="padding:14px 28px; font-size:16px;">Speak to an Expert</button></a>
+      <div class="kpis" style="margin-top:48px;">
+        <div class="kpi"><b>200+</b><span>Clients Served</span></div>
+        <div class="kpi"><b>R0</b><span>Penalty Goal</span></div>
+        <div class="kpi"><b>100%</b><span>Compliance Focus</span></div>
       </div>
     </div>
-  </main>
+  </div>
+</main>
 
-  <!-- Services -->
-  <section id="services" aria-labelledby="services-title">
-    <div class="container">
-      <h2 class="section-title" id="services-title">Our Services</h2>
-      <p class="section-sub">Full-stack accounting and compliance for all individuals (residents / non - residents) and companies.</p>
-      <div class="grid grid-3">
-        <article class="card">
-          <span class="pill">CIPC • CSD • COIDA • CIDB</span>
-          <h3>Company Registration & Reinstatement</h3>
-          <p>Fast, compliant setup and reinstatement of companies, plus key registrations to start trading confidently.</p>
-        </article>
-        <article class="card">
-          <span class="pill">Payroll</span>
-          <h3>Payroll Services</h3>
-          <p>Accurate payroll processing, payslips, EMP201/501 submissions, and statutory compliance.</p>
-        </article>
-        <article class="card">
-          <span class="pill">Books</span>
-          <h3>Book-keeping Services</h3>
-          <p>Clean books, reconciliations, management accounts, and cloud accounting setup.</p>
-        </article>
-        <article class="card">
-          <span class="pill">Advisory</span>
-          <h3>Consultation & Advisory</h3>
-          <p>Strategic guidance on cash flow, pricing, tax and VAT, and smart financial decisions that drive growth.</p>
-        </article>
-        <article class="card">
-          <span class="pill">SARS</span>
-          <h3>Tax Planning & Compliance (SARS)</h3>
-          <p>Income tax, Provisional tax, returns, objections, penalty mitigation, and proactive planning to avoid surprises.</p>
-        </article>
-        <article class="card">
-          <span class="pill">Reports</span>
-          <h3>Financial Statements</h3>
-          <p>Annual financial statements prepared to required standards.</p>
-        </article>
-      </div>
+ <!-- Services -->
+<section id="services" aria-labelledby="services-title">
+  <div class="container">
+    <h2 class="section-title" id="services-title">Our Services</h2>
+    <p class="section-sub">Comprehensive financial and accounting solutions for individuals and businesses.</p>
+    <div class="grid grid-3">
+
+      <article class="card">
+        <span class="pill">Bookkeeping</span>
+        <h3>Bookkeeping</h3>
+        <ul>
+          <li>Recording financial transactions</li>
+          <li>Maintaining ledgers and accounts</li>
+          <li>Bank reconciliations</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="pill">Accounting</span>
+        <h3>Financial Accounting</h3>
+        <ul>
+          <li>Preparing financial statements</li>
+          <li>Monthly, quarterly, and annual reporting</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="pill">Tax</span>
+        <h3>Tax Services</h3>
+        <ul>
+          <li>Tax return preparation and filing</li>
+          <li>Tax planning and advisory</li>
+          <li>Corporate, individual, payroll, and VAT tax compliance</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="pill">Auditing</span>
+        <h3>Auditing & Assurance</h3>
+        <ul>
+          <li>External audits</li>
+          <li>Internal audits</li>
+          <li>Reviews and assurance engagements</li>
+          <li>Compliance audits</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="pill">Payroll</span>
+        <h3>Payroll Services</h3>
+        <ul>
+          <li>Payroll processing</li>
+          <li>Employee tax deductions</li>
+          <li>Statutory compliance and reporting</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="pill">Management</span>
+        <h3>Management Accounting</h3>
+        <ul>
+          <li>Budget preparation</li>
+          <li>Cost accounting</li>
+          <li>Performance analysis</li>
+          <li>Financial forecasting</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="pill">Advisory</span>
+        <h3>Business Advisory & Consulting</h3>
+        <ul>
+          <li>Business planning</li>
+          <li>Strategic advice</li>
+          <li>Risk management</li>
+          <li>Process improvement</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="pill">Secretarial</span>
+        <h3>Company Secretarial Services</h3>
+        <ul>
+          <li>Company registration</li>
+          <li>Maintaining statutory records</li>
+          <li>Filing annual returns and regulatory documents</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="pill">Financial Management</span>
+        <h3>Financial Management Services</h3>
+        <ul>
+          <li>Cash flow management</li>
+          <li>Working capital management</li>
+          <li>Financial analysis and reporting</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="pill">Compliance</span>
+        <h3>Compliance Services</h3>
+        <ul>
+          <li>Regulatory compliance</li>
+          <li>Accounting standards compliance</li>
+          <li>Corporate governance support</li>
+        </ul>
+      </article>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- About -->
   <section id="about" aria-labelledby="about-title">
