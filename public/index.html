@@ -151,7 +151,7 @@
       <nav class="nav" aria-label="Main">
         <a class="brand" href="#home" aria-label="Mabuza Accounting Solutions">
          
-          <img src="logo.png" alt="Mabuza Accounting Solutions logo" />
+          <img src="logo.jpeg" alt="Mabuza Accounting Solutions logo" />
           <span>Mabuza Accounting Solutions</span>
         </a>
         <div class="menu" role="menubar">
@@ -350,61 +350,83 @@
   <button id="topBtn" aria-label="Back to top" title="Back to top">↑</button>
 
   <script>
-    // Header interactions
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger?.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      hamburger.setAttribute('aria-label', mobileMenu.classList.contains('open') ? 'Close menu' : 'Open menu');
+  // Header interactions
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger?.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-label', mobileMenu.classList.contains('open') ? 'Close menu' : 'Open menu');
+  });
+
+  // Back to top button
+  const topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', () => {
+    topBtn.style.display = window.scrollY > 500 ? 'grid' : 'none';
+  });
+  topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Toast notification
+  function toast(msg){
+    const t = document.createElement('div');
+    t.textContent = msg;
+    Object.assign(t.style, {
+      position:'fixed', left:'50%', bottom:'28px', transform:'translateX(-50%)',
+      background:'#111827', color:'#fff', padding:'12px 16px', borderRadius:'12px',
+      boxShadow:'0 10px 30px rgba(0,0,0,.2)', zIndex:9999
     });
+    document.body.appendChild(t);
+    setTimeout(()=>t.remove(), 2500);
+  }
 
-    // Back to top button
-    const topBtn = document.getElementById('topBtn');
-    window.addEventListener('scroll', () => {
-      topBtn.style.display = window.scrollY > 500 ? 'grid' : 'none';
-    });
-    topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Demo forms (replace with backend or Formspree)
-    function toast(msg){
-      const t = document.createElement('div');
-      t.textContent = msg;
-      Object.assign(t.style, {
-        position:'fixed', left:'50%', bottom:'28px', transform:'translateX(-50%)',
-        background:'#111827', color:'#fff', padding:'12px 16px', borderRadius:'12px',
-        boxShadow:'0 10px 30px rgba(0,0,0,.2)', zIndex:9999
+  // Main contact form
+  async function sendContact(e){
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value
+    };
+    try {
+      const res = await fetch('http://localhost:5000/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
-      document.body.appendChild(t);
-      setTimeout(()=>t.remove(), 2500);
+      const result = await res.json();
+      toast(result.message);
+      form.reset();
+    } catch(err) {
+      toast('Something went wrong. Please try again.');
     }
-    function sendContact(e){
-      e.preventDefault();
-      toast('Thanks! Your message has been queued.');
-      e.target.reset();
-      return false;
+  }
+
+  // Quick contact form (hero section)
+  async function quickContact(e){
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value
+    };
+    try {
+      const res = await fetch('http://localhost:5000/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      toast(result.message);
+      form.reset();
+    } catch(err) {
+      toast('Something went wrong. Please try again.');
     }
-    function quickContact(e){
-      e.preventDefault();
-      toast('Thanks! We will contact you shortly.');
-      e.target.reset();
-      return false;
-    }
-
-
-fetch("http://localhost:5000/contact", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ name, email, message })
-})
-.then(res => res.json())
-.then(data => console.log(data))
-.catch(err => console.error(err));
-
-    
-  </script>
+  }
+</script>
 
 </body>
 </html>
