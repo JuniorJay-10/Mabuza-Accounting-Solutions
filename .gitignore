@@ -1,3 +1,5 @@
 node_modules
 .env
 mabuza-backend/.env
+# cd mabuza-backend
+# node server.js

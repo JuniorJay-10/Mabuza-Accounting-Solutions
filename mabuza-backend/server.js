@@ -12,13 +12,26 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // 1. Reusable Transporter Instance (Created ONCE here instead of inside the route)
+// const transporter = nodemailer.createTransport({
+//   service: "gmail",
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASS,
+//   },
+// });
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  tls: {
+    rejectUnauthorized: false
+  }
 });
+
 
 // Verify the transporter connection on server startup
 transporter.verify((error, success) => {
